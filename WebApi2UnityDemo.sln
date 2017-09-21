@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Unity", "WebApi2Unity\WebApi2Unity.csproj", "{802571BB-1DE7-4ED6-AA18-5864F7C8EF3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Unity.Tests", "WebApi2Unity.Tests\WebApi2Unity.Tests.csproj", "{9923401F-500C-4B78-A751-307D35E72A26}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{802571BB-1DE7-4ED6-AA18-5864F7C8EF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802571BB-1DE7-4ED6-AA18-5864F7C8EF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802571BB-1DE7-4ED6-AA18-5864F7C8EF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802571BB-1DE7-4ED6-AA18-5864F7C8EF3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9923401F-500C-4B78-A751-307D35E72A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9923401F-500C-4B78-A751-307D35E72A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9923401F-500C-4B78-A751-307D35E72A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9923401F-500C-4B78-A751-307D35E72A26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
