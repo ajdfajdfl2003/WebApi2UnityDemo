@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.1.17\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -50,6 +56,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -67,13 +75,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductRepo.feature</DependentUpon>
     </Compile>
+    <Compile Include="ModelInTest\ProductDb01.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDb01.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInTest\ProductDb01.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDb01.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInTest\ProductDb01.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDb01.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInTest\Products.cs">
+      <DependentUpon>ProductDb01.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="steps\ProductRepoSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="features\ProductRepo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ProductRepo.feature.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="ModelInTest\ProductDb01.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductDb01.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelInTest\ProductDb01.edmx.diagram">
+      <DependentUpon>ProductDb01.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -83,8 +117,21 @@
       <Name>WebApi2Unity</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="steps\" />
+    <Content Include="ModelInTest\ProductDb01.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProductDb01.Context.cs</LastGenOutput>
+      <DependentUpon>ProductDb01.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelInTest\ProductDb01.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductDb01.edmx</DependentUpon>
+      <LastGenOutput>ProductDb01.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
