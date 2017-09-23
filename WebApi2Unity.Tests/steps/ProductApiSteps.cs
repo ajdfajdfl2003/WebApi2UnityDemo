@@ -21,6 +21,18 @@ namespace WebApi2Unity.Tests.steps
             ScenarioContext.Current.Set(fakeResult, "fakeResult");
         }
 
+        [When(@"呼叫查詢BlocationProducts的Get")]
+        public void When呼叫查詢BlocationProducts的Get()
+        {
+            var repo = Substitute.For<IProductRepo>();
+            var fakeResult = ScenarioContext.Current.Get<IEnumerable<Product>>("fakeResult");
+            repo.GetAll().Returns(fakeResult);
+            var target = new BProductsController(repo);
+
+            var actual = target.Get();
+            ScenarioContext.Current.Set(actual, "actual");
+        }
+
         [When(@"呼叫查詢AlocationProducts的Get")]
         public void When呼叫查詢AlocationProducts的Get()
         {

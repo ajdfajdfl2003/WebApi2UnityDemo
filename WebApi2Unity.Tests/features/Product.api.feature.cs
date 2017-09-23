@@ -126,6 +126,50 @@ namespace WebApi2Unity.Tests.Features
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("功能ProductApi，BlocationProducts查詢Get，成功取得資料。")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ProductApi")]
+        public virtual void 功能ProductApiBlocationProducts查詢Get成功取得資料()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("功能ProductApi，BlocationProducts查詢Get，成功取得資料。", ((string[])(null)));
+#line 17
+ this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Name",
+                        "Price"});
+            table3.AddRow(new string[] {
+                        "2",
+                        "Orange",
+                        "40"});
+            table3.AddRow(new string[] {
+                        "3",
+                        "Guava",
+                        "50"});
+#line 18
+  testRunner.Given("預計資料表應有", ((string)(null)), table3, "Given ");
+#line 22
+  testRunner.When("呼叫查詢BlocationProducts的Get", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Id",
+                        "Name",
+                        "Price"});
+            table4.AddRow(new string[] {
+                        "2",
+                        "Orange",
+                        "40"});
+            table4.AddRow(new string[] {
+                        "3",
+                        "Guava",
+                        "50"});
+#line 23
+  testRunner.Then("查詢Get結果應為Ok，結果應為", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
