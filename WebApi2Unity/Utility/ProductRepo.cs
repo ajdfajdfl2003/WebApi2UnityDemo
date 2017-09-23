@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using WebApi2Unity.Interfaces;
 using WebApi2Unity.Models;
 
 namespace WebApi2Unity.Utility
 {
-    public class ProductRepo
+    public class ProductRepo : IProductRepo
     {
         private readonly string _dbConnectionString;
 
