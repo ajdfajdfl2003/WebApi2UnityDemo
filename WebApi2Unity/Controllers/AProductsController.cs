@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Microsoft.Practices.Unity;
+using System.Web.Http;
 using WebApi2Unity.Interfaces;
 
 namespace WebApi2Unity.Controllers
@@ -7,7 +8,7 @@ namespace WebApi2Unity.Controllers
     {
         private IProductRepo repo;
 
-        public AProductsController(IProductRepo repo)
+        public AProductsController([Dependency("AProducts")] IProductRepo repo)
         {
             this.repo = repo;
         }
@@ -15,7 +16,7 @@ namespace WebApi2Unity.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            var result = repo.Get();
+            var result = repo.GetAll();
             return Ok(result);
         }
     }

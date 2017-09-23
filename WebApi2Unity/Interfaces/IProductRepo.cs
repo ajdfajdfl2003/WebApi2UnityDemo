@@ -5,6 +5,6 @@ namespace WebApi2Unity.Interfaces
 {
     public interface IProductRepo
     {
-        IEnumerable<Product> Get();
+        IEnumerable<Product> GetAll();
     }
 }

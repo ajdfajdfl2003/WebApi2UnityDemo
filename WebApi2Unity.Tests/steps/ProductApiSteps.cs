@@ -26,7 +26,7 @@ namespace WebApi2Unity.Tests.steps
         {
             var repo = Substitute.For<IProductRepo>();
             var fakeResult = ScenarioContext.Current.Get<IEnumerable<Product>>("fakeResult");
-            repo.Get().Returns(fakeResult);
+            repo.GetAll().Returns(fakeResult);
             var target = new AProductsController(repo);
 
             var actual = target.Get();
