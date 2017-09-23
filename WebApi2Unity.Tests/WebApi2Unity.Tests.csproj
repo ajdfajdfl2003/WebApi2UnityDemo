@@ -113,8 +113,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductDb01.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelInTest\ProductDb02.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDb02.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInTest\ProductDb02.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDb02.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelInTest\ProductDb02.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductDb02.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ModelInTest\Products.cs">
-      <DependentUpon>ProductDb01.tt</DependentUpon>
+      <DependentUpon>ProductDb02.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="steps\ProductApiIntegrationTestingSteps.cs" />
@@ -142,6 +157,13 @@
     <None Include="ModelInTest\ProductDb01.edmx.diagram">
       <DependentUpon>ProductDb01.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="ModelInTest\ProductDb02.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductDb02.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelInTest\ProductDb02.edmx.diagram">
+      <DependentUpon>ProductDb02.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +183,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProductDb01.edmx</DependentUpon>
       <LastGenOutput>ProductDb01.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelInTest\ProductDb02.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductDb02.edmx</DependentUpon>
+      <LastGenOutput>ProductDb02.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelInTest\ProductDb02.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ProductDb02.edmx</DependentUpon>
+      <LastGenOutput>ProductDb02.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

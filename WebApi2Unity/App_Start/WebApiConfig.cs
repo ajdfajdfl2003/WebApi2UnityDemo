@@ -14,6 +14,8 @@ namespace WebApi2Unity
             var container = new UnityContainer();
             container.RegisterType<IProductRepo, ProductRepo>("AProducts", new ContainerControlledLifetimeManager(),
                 new InjectionConstructor("ProductDb01"));
+            container.RegisterType<IProductRepo, ProductRepo>("BProducts", new ContainerControlledLifetimeManager(),
+                new InjectionConstructor("ProductDb02"));
             config.DependencyResolver = new UnityResolver(container);
 
             // Web API 路由

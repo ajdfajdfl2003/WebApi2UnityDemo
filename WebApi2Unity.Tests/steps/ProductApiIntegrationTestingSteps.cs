@@ -19,12 +19,20 @@ namespace WebApi2Unity.Tests.steps
             {
                 db.Database.ExecuteSqlCommand("Delete From dbo.Products");
             }
+            using (var db = new ProductDb02Context())
+            {
+                db.Database.ExecuteSqlCommand("Delete From dbo.Products");
+            }
         }
 
         [AfterScenario]
         public void As()
         {
             using (var db = new ProductDb01Context())
+            {
+                db.Database.ExecuteSqlCommand("Delete From dbo.Products");
+            }
+            using (var db = new ProductDb02Context())
             {
                 db.Database.ExecuteSqlCommand("Delete From dbo.Products");
             }
@@ -36,8 +44,19 @@ namespace WebApi2Unity.Tests.steps
             ScenarioContext.Current.Set(webUri, "webUri");
         }
 
-        [Given(@"預計 Product 資料表應有")]
-        public void Given預計Product資料表應有(Table table)
+        [Given(@"預計 ProductDb02Context 的 Product 資料表應有")]
+        public void Given預計ProductDb02Context的Product資料表應有(Table table)
+        {
+            var products = table.CreateSet<ModelInTest.Products>();
+            using (var db = new ProductDb02Context())
+            {
+                db.Products.AddRange(products);
+                db.SaveChanges();
+            }
+        }
+
+        [Given(@"預計 ProductDb01Context 的 Product 資料表應有")]
+        public void Given預計ProductDb01Context的Product資料表應有(Table table)
         {
             var products = table.CreateSet<ModelInTest.Products>();
             using (var db = new ProductDb01Context())
@@ -47,8 +66,8 @@ namespace WebApi2Unity.Tests.steps
             }
         }
 
-        [When(@"呼叫查詢AProducts的Get")]
-        public void When呼叫查詢aProducts的Get()
+        [When(@"開始查詢")]
+        public void When開始查詢()
         {
             var uri = ScenarioContext.Current.Get<string>("webUri");
             var httpRequestMessaget = new HttpRequestMessage(HttpMethod.Get, uri);
